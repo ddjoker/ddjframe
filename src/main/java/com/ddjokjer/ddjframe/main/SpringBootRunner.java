@@ -13,7 +13,8 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {"com.ddjokjer.ddjframe.biz"
     , "com.ddjokjer.ddjframe.dao"
     , "com.ddjokjer.ddjframe.web"
-    , "com.ddjokjer.ddjframe.config"})
+    , "com.ddjokjer.ddjframe.config"
+    , "com.ddjokjer.ddjframe.api"})
 public class SpringBootRunner {
 
   public static void main(String[] args) throws Exception {

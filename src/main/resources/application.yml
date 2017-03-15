@@ -10,9 +10,9 @@ logging:
     level:
        com.ibatis: DEBUG
 spring:
-  datasource:
+  datasource: ##注册数据源
         name: test
-        url: jdbc:mysql://localhost:3306/quick4j?useSSL=false
+        url: jdbc:mysql://localhost:3306/quick4j
         username: root
         password: 111111
         type: com.alibaba.druid.pool.DruidDataSource
@@ -35,6 +35,3 @@ spring:
         enabled: true
         charset: UTF-8
         force: true
-  aop:
-    proxy-target-class: true
-

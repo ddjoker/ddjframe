@@ -1,5 +1,6 @@
 package com.ddjokjer.ddjframe.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Date;
 
 public class User {
@@ -7,6 +8,7 @@ public class User {
 
     private String username;
 
+    @JsonIgnore
     private String password;
 
     private String state;

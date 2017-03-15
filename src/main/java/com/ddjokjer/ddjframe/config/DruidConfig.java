@@ -7,7 +7,6 @@ import com.alibaba.druid.support.logging.Log;
 import com.alibaba.druid.support.logging.LogFactory;
 import java.sql.SQLException;
 import javax.sql.DataSource;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.bind.RelaxedPropertyResolver;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -29,7 +28,7 @@ public class DruidConfig implements EnvironmentAware {
     reg.setServlet(new StatViewServlet());
     reg.addUrlMappings("/druid/*");
     reg.addInitParameter("loginUsername", "druid");
-    reg.addInitParameter("loginPassword", "jiajian123456");
+    reg.addInitParameter("loginPassword", "111111");
     return reg;
   }
   @Bean

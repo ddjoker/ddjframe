@@ -9,24 +9,31 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
-public class SampleController {
+@RestController
+
+public class PageController {
 
   @RequestMapping("/")
   @ResponseBody
   String home() {
-    return userService.selectByPrimaryKey(1L).getUsername();
+    return "wellcome to home page!";
   }
 
-
-/*  @RequestMapping("/user/{id}")
+/*  @RequestMapping("/error/404")
   @ResponseBody
-  String user(@RequestParam("id") @NotNull Long id) {
-    return userService.selectByPrimaryKey(id).getUsername();
+  String error404() {
+    return "wellcome to 404 page!";
+  }
+
+  @RequestMapping("/error/500")
+  @ResponseBody
+  String error500() {
+    return "wellcome to 500 page!";
+  }
+
+  @RequestMapping("/error")
+  @ResponseBody
+  String error() {
+    return "wellcome to error page!";
   }*/
-
-  @Autowired
-  UserService userService;
-
-
 }

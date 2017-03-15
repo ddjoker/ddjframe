@@ -40,8 +40,6 @@ public class MybatisConfig implements TransactionManagementConfigurer,Environmen
   @Autowired
   private DataSource dataSource;
 
-
-
   /**
    *创建sqlSessionFactoryBean 实例
    * 并且设置configtion 如驼峰命名.等等

@@ -1,7 +1,5 @@
 package com.ddjokjer.ddjframe.api;
 
-import com.ddjokjer.ddjframe.model.User;
-import com.ddjokjer.ddjframe.model.api.APIEntity;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

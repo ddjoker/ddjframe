@@ -20,6 +20,17 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 
+    <mybatis.spring.boot.version>1.2.0</mybatis.spring.boot.version>
+    <druid.version>1.0.18</druid.version>
+    <thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>
+    <thymeleaf.test.version>3.0.2.RELEASE</thymeleaf.test.version>
+
+    <thymeleaf.layout.dialect.version>2.2.1</thymeleaf.layout.dialect.version>
+    <!-- 使用最新的data attribute 用于支持最新的thymeleaf 3.0.3
+        AbstractDialect 删除了空构造 所以1.3.2版本无法使用
+    -->
+    <thymeleaf.extras.data.attribute.version>2.0.1</thymeleaf.extras.data.attribute.version>
+
     <!-- plugin setting -->
     <mybatis.generator.generatorConfig.xml>${basedir}/src/test/resources/generatorConfig.xml
     </mybatis.generator.generatorConfig.xml>
@@ -33,25 +44,107 @@
       <dependency>
         <groupId>org.mybatis.spring.boot</groupId>
         <artifactId>mybatis-spring-boot-starter</artifactId>
-        <version>1.2.0</version>
+        <version>${mybatis.spring.boot.version}</version>
       </dependency>
       <dependency>
         <groupId>com.alibaba</groupId>
         <artifactId>druid</artifactId>
-        <version>1.0.18</version>
+        <version>${druid.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.thymeleaf</groupId>
+        <artifactId>thymeleaf</artifactId>
+        <version>${thymeleaf.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.thymeleaf</groupId>
+        <artifactId>thymeleaf-spring4</artifactId>
+        <version>${thymeleaf.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.thymeleaf</groupId>
+        <artifactId>thymeleaf-testing</artifactId>
+        <version>${thymeleaf.test.version}</version>
+      </dependency>
+      <!--  <dependency>
+          <groupId>org.thymeleaf.extras</groupId>
+          <artifactId>thymeleaf-extras-java8time</artifactId>
+        </dependency>-->
+      <!--      <dependency>
+              <groupId>org.thymeleaf.extras</groupId>
+              <artifactId>thymeleaf-extras-conditionalcomments</artifactId>
+              <version>${thymeleaf.version}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.thymeleaf.extras</groupId>
+              <artifactId>thymeleaf-extras-conditionalcomments</artifactId>
+              <version>${thymeleaf.version}</version>
+            </dependency>-->
+      <dependency>
+        <groupId>nz.net.ultraq.thymeleaf</groupId>
+        <artifactId>thymeleaf-layout-dialect</artifactId>
+        <version>${thymeleaf.layout.dialect.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.mxab.thymeleaf.extras</groupId>
+        <artifactId>thymeleaf-extras-data-attribute</artifactId>
+        <version>${thymeleaf.extras.data.attribute.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
   <dependencies>
 
     <!--web  -->
+    <!--  using thymeleaf instead-->
+    <!--    <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>-->
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-tomcat</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.thymeleaf</groupId>
+      <artifactId>thymeleaf</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.github.mxab.thymeleaf.extras</groupId>
+      <artifactId>thymeleaf-extras-data-attribute</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.thymeleaf.extras</groupId>
+      <artifactId>thymeleaf-extras-java8time</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.thymeleaf.extras</groupId>
+      <artifactId>thymeleaf-extras-conditionalcomments</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.thymeleaf</groupId>
+      <artifactId>thymeleaf-spring4</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.thymeleaf.extras</groupId>
+      <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.thymeleaf</groupId>
+      <artifactId>thymeleaf-testing</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.github.mxab.thymeleaf.extras</groupId>
+      <artifactId>thymeleaf-extras-data-attribute</artifactId>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
@@ -96,6 +189,11 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jdbc</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jetbrains</groupId>
+      <artifactId>annotations-java5</artifactId>
+      <version>RELEASE</version>
     </dependency>
 
 

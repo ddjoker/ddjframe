@@ -1,6 +1,7 @@
 package com.ddjokjer.ddjframe.api;
 
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 import com.ddjokjer.ddjframe.biz.UserService;
 import com.ddjokjer.ddjframe.model.User;

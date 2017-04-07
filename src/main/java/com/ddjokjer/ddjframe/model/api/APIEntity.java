@@ -9,6 +9,7 @@ import org.springframework.hateoas.ResourceSupport;
  * Created by dong on 2017/3/15.
  */
 public class APIEntity<T> extends ResourceSupport {
+
   private final T model;
 
   @JsonCreator
@@ -20,12 +21,12 @@ public class APIEntity<T> extends ResourceSupport {
     return model;
   }
 
-  public static <T>  APIEntity<T> create(T model){
+  public static <T> APIEntity<T> create(T model) {
     return new APIEntity(model);
   }
 
-  public APIEntity<T> addLinkOn(Link... link){
-    this.add(link);
+  public APIEntity<T> addLinkOn(Link... link) {
+    add(link);
     return this;
   }
 

@@ -1,23 +1,31 @@
 package com.ddjokjer.ddjframe.web;
 
-import com.ddjokjer.ddjframe.biz.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.*;
-import org.springframework.boot.autoconfigure.*;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.*;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-@RestController
-
+@Controller
 public class PageController {
 
-  @RequestMapping("/")
-  @ResponseBody
-  String home() {
-    return "wellcome to home page!";
+  @RequestMapping({"/","/index"})
+  String home(Model model) {
+    model.addAttribute("title","some thing good !");
+    return "index";
   }
+  @RequestMapping({"/main"})
+  String main(Model model) {
+    model.addAttribute("title","some thing good !");
+    return "main";
+  }
+
+/*  @Bean
+  @Scope("prototype")
+  public ThymeleafView indexView() {
+    ThymeleafView view = new ThymeleafView("index"); // templateName = 'main'
+    view.setStaticVariables(
+        Collections.singletonMap("title", "The ACME Fruit Company"));
+    return view;
+  }*/
 
 /*  @RequestMapping("/error/404")
   @ResponseBody

@@ -7,16 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PageController {
 
-  @RequestMapping({"/","/index"})
+  @RequestMapping({"/"})
   String home(Model model) {
-    model.addAttribute("title","some thing good !");
-    return "index";
+    return "hello world";
   }
-  @RequestMapping({"/main"})
-  String main(Model model) {
-    model.addAttribute("title","some thing good !");
-    return "main";
-  }
+
 
 /*  @Bean
   @Scope("prototype")

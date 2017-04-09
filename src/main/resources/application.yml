@@ -35,9 +35,12 @@ spring:
         enabled: true
         charset: UTF-8
         force: true
-  thymeleaf:
-    cache: false
-    mode: HTML
-    prefix: /templates/
+vaadin:
+  servlet:
+    url-mapping:
+ ## thymeleaf:
+  ##  cache: false
+    ##mode: HTML
+   ## prefix: /templates/
     ## filter 的加载顺序
     ##template-resolver-order: 2

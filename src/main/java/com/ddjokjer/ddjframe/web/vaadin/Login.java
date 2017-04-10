@@ -1,5 +1,8 @@
 package com.ddjokjer.ddjframe.web.vaadin;
 
+import com.ddjokjer.ddjframe.web.vaadin.view.LoginView;
+import com.vaadin.annotations.PreserveOnRefresh;
+import com.vaadin.navigator.Navigator;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
@@ -15,16 +18,11 @@ import com.vaadin.ui.Window;
  * Created by dong on 2017/4/9.
  */
 @SpringUI( path = "login")
+@PreserveOnRefresh
 public class Login extends UI {
 
   @Override
   protected void init(VaadinRequest vaadinRequest) {
-   LoginForm loginForm =  new LoginForm();
-   loginForm.addLoginListener(new LoginListener() {
-      @Override
-      public void onLogin(LoginEvent event) {
-      }
-    });
-    setContent(loginForm);
+    setContent(new LoginForm());
   }
 }

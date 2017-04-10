@@ -9,6 +9,7 @@ mybatis:
 logging:
     level:
        com.ibatis: DEBUG
+      ## c.v.spring.navigator.SpringViewProvider: DEBUG
 spring:
   datasource: ##注册数据源
         name: test

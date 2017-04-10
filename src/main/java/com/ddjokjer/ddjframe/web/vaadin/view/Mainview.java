@@ -11,7 +11,9 @@ import com.vaadin.ui.Notification;
  */
 @SpringView
 public class Mainview extends Main implements View {
-
+  public Mainview() {
+    setSizeFull();
+  }
   @Override
   public void enter(ViewChangeEvent event) {
     Notification.show("welcome ");

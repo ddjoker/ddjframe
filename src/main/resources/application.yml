@@ -36,9 +36,13 @@ spring:
         enabled: true
         charset: UTF-8
         force: true
+
 vaadin:
   servlet:
     url-mapping:
+
+pagehelper: ##mybatis分页处理
+  reasonable:
  ## thymeleaf:
   ##  cache: false
     ##mode: HTML

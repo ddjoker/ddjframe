@@ -1,6 +1,8 @@
 package com.ddjokjer.ddjframe.config;
 
+import com.github.pagehelper.PageInterceptor;
 import javax.sql.DataSource;
+import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -19,45 +21,44 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.TransactionManagementConfigurer;
+import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 
 @Configuration
 @EnableTransactionManagement
-@ConditionalOnClass({ EnableTransactionManagement.class })
-@AutoConfigureAfter({ DruidConfig.class })
-@MapperScan({"com.ddjokjer.ddjframe.dao"})
-public class MybatisConfig implements TransactionManagementConfigurer,EnvironmentAware {
+@ConditionalOnClass({EnableTransactionManagement.class})
+@AutoConfigureAfter({DruidConfig.class})
 
-  /**  //DataSource配置 另一种
-   @Bean
-   @ConfigurationProperties(prefix="spring.datasource")
-   表示从spring配置中获取
-   public DataSource dataSource() {
-   return new org.apache.tomcat.jdbc.pool.DataSource();
-   }*/
+public class MybatisConfig implements TransactionManagementConfigurer, EnvironmentAware {
+
+  /**
+   * //DataSource配置 另一种
+   *
+   * @Bean
+   * @ConfigurationProperties(prefix="spring.datasource") 表示从spring配置中获取 public DataSource
+   * dataSource() { return new org.apache.tomcat.jdbc.pool.DataSource(); }
+   */
   @Autowired
   private DataSource dataSource;
 
   /**
-   *创建sqlSessionFactoryBean 实例
+   * 创建sqlSessionFactoryBean 实例
    * 并且设置configtion 如驼峰命名.等等
    * 设置mapper 映射路径
    * 设置datasource数据源
-   * @return
-   * @throws Exception
    */
   @Bean(name = "sqlSessionFactory")
   public SqlSessionFactoryBean createSqlSessionFactoryBean() throws Exception {
     SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-/** 设置mybatis configuration 扫描路径 */
-    sqlSessionFactoryBean
-        .setConfigLocation(new DefaultResourceLoader()
-            .getResource(propertyResolver
-                .getProperty("configLocation")));
-/** 设置datasource */
+    /** 设置mybatis configuration 扫描路径 */
+    sqlSessionFactoryBean.setConfigLocation(
+        new DefaultResourceLoader().getResource(propertyResolver.getProperty("configLocation")));
+    /** 设置datasource */
     sqlSessionFactoryBean.setDataSource(dataSource);
-/** 设置typeAlias 包扫描路径 */
+    /** 设置typeAlias 包扫描路径 */
     sqlSessionFactoryBean.setTypeAliasesPackage(propertyResolver
         .getProperty("typeAliasesPackage"));
+    //添加分页支持
+    sqlSessionFactoryBean.setPlugins(new Interceptor[]{new PageInterceptor()});
 
     sqlSessionFactoryBean
         .setMapperLocations(new PathMatchingResourcePatternResolver()
@@ -65,6 +66,13 @@ public class MybatisConfig implements TransactionManagementConfigurer,Environmen
                 .getProperty("mapperLocations")));
 
     return sqlSessionFactoryBean;
+  }
+
+  @Bean
+  public MapperScannerConfigurer mapperScannerConfigurer(){
+    MapperScannerConfigurer mapperScannerConfigurer =  new MapperScannerConfigurer();
+    mapperScannerConfigurer.setBasePackage("com.**.dao");
+    return mapperScannerConfigurer;
   }
 
   @Bean
@@ -77,6 +85,7 @@ public class MybatisConfig implements TransactionManagementConfigurer,Environmen
   public PlatformTransactionManager annotationDrivenTransactionManager() {
     return new DataSourceTransactionManager(dataSource);
   }
+
   private RelaxedPropertyResolver propertyResolver;
 
   @Override

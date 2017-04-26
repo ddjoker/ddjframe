@@ -4,8 +4,8 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 import com.ddjokjer.ddjframe.biz.UserService;
-import com.ddjokjer.ddjframe.model.User;
 import com.ddjokjer.ddjframe.model.api.APIEntity;
+import com.ddjokjer.ddjframe.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserAPIController extends BaseAPIController {
 
   @RequestMapping("/{id}")
-  public HttpEntity<APIEntity<User>> getUser(@PathVariable("id") Long id) {
+  public HttpEntity<APIEntity<User>> getUser(@PathVariable("id") String id) {
     return buildEntity(APIEntity.create(userService.selectByPrimaryKey(id))
         .addLinkOn(linkTo(methodOn(UserAPIController.class).getUser(id)).withSelfRel())
         , HttpStatus.OK);

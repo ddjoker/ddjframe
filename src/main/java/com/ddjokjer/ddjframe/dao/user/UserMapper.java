@@ -1,20 +1,16 @@
-package com.ddjokjer.ddjframe.dao;
+package com.ddjokjer.ddjframe.dao.user;
 
-import com.ddjokjer.ddjframe.model.User;
-import com.ddjokjer.ddjframe.model.UserExample;
+import com.ddjokjer.ddjframe.model.user.User;
+import com.ddjokjer.ddjframe.model.user.UserExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
-@Repository
-@Mapper
 public interface UserMapper {
     long countByExample(UserExample example);
 
     int deleteByExample(UserExample example);
 
-    int deleteByPrimaryKey(Long id);
+    int deleteByPrimaryKey(String usrGuid);
 
     int insert(User record);
 
@@ -22,7 +18,7 @@ public interface UserMapper {
 
     List<User> selectByExample(UserExample example);
 
-    User selectByPrimaryKey(Long id);
+    User selectByPrimaryKey(String usrGuid);
 
     int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
 

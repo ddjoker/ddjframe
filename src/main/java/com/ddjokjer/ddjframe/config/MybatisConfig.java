@@ -27,7 +27,7 @@ import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 @EnableTransactionManagement
 @ConditionalOnClass({EnableTransactionManagement.class})
 @AutoConfigureAfter({DruidConfig.class})
-
+@MapperScan({"com.**.dao"})
 public class MybatisConfig implements TransactionManagementConfigurer, EnvironmentAware {
 
   /**
@@ -57,23 +57,28 @@ public class MybatisConfig implements TransactionManagementConfigurer, Environme
     /** 设置typeAlias 包扫描路径 */
     sqlSessionFactoryBean.setTypeAliasesPackage(propertyResolver
         .getProperty("typeAliasesPackage"));
-    //添加分页支持
+   /* //添加分页支持
     sqlSessionFactoryBean.setPlugins(new Interceptor[]{new PageInterceptor()});
-
-    sqlSessionFactoryBean
+*/
+ /*   sqlSessionFactoryBean
         .setMapperLocations(new PathMatchingResourcePatternResolver()
             .getResources(propertyResolver
-                .getProperty("mapperLocations")));
+                .getProperty("mapperLocations")));*/
 
     return sqlSessionFactoryBean;
   }
-
+/*  @Bean
+  public Interceptor pageInterceptor(){
+    PageInterceptor pageInterceptor = new PageInterceptor();
+    return pageInterceptor;
+  }*/
+/*
   @Bean
   public MapperScannerConfigurer mapperScannerConfigurer(){
     MapperScannerConfigurer mapperScannerConfigurer =  new MapperScannerConfigurer();
     mapperScannerConfigurer.setBasePackage("com.**.dao");
     return mapperScannerConfigurer;
-  }
+  }*/
 
   @Bean
   public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {

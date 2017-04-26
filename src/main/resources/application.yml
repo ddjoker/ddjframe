@@ -40,9 +40,10 @@ spring:
 vaadin:
   servlet:
     url-mapping:
-
-pagehelper: ##mybatis分页处理
-  reasonable:
+pagehelper:
+  pageSizeZero: true
+  reasonable: true
+  helperDialect: mysql
  ## thymeleaf:
   ##  cache: false
     ##mode: HTML

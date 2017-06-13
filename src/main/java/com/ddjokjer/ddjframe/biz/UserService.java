@@ -1,6 +1,7 @@
 package com.ddjokjer.ddjframe.biz;
 
 import com.ddjokjer.ddjframe.model.user.User;
+import com.ddjokjer.ddjframe.model.user.login.UserLoginDefault;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -15,4 +16,6 @@ public interface UserService {
      * @return the user
      */
     User selectByPrimaryKey(@NotNull String id);
+
+    User createUser(@NotNull User user,UserLoginDefault userLoginDefault);
 }

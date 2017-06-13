@@ -4,7 +4,10 @@ import com.ddjokjer.ddjframe.model.user.User;
 import com.ddjokjer.ddjframe.model.user.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserMapper {
     long countByExample(UserExample example);
 

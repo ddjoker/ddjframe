@@ -4,7 +4,9 @@ import com.ddjokjer.ddjframe.model.user.UserSettings;
 import com.ddjokjer.ddjframe.model.user.UserSettingsExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserSettingsMapper {
     long countByExample(UserSettingsExample example);
 

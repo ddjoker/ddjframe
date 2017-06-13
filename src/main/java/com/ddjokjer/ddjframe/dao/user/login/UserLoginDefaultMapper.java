@@ -4,7 +4,9 @@ import com.ddjokjer.ddjframe.model.user.login.UserLoginDefault;
 import com.ddjokjer.ddjframe.model.user.login.UserLoginDefaultExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserLoginDefaultMapper {
     long countByExample(UserLoginDefaultExample example);
 

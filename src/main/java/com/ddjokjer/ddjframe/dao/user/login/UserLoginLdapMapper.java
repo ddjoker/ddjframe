@@ -4,7 +4,9 @@ import com.ddjokjer.ddjframe.model.user.login.UserLoginLdap;
 import com.ddjokjer.ddjframe.model.user.login.UserLoginLdapExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserLoginLdapMapper {
     long countByExample(UserLoginLdapExample example);
 

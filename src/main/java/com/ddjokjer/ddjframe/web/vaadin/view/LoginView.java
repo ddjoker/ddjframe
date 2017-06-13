@@ -18,12 +18,7 @@ public class LoginView extends VerticalLayout implements View {
     setSizeFull();
 
     LoginForm loginForm =  new LoginForm();
-    loginForm.addLoginListener(new LoginListener() {
-      @Override
-      public void onLogin(LoginEvent event) {
-        getUI().getNavigator().navigateTo("main");
-      }
-    });
+    loginForm.addLoginListener((LoginListener) event -> getUI().getNavigator().navigateTo("main"));
     addComponent(loginForm);
     setComponentAlignment(loginForm, Alignment.MIDDLE_CENTER);
   }

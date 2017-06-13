@@ -3,94 +3,169 @@
  <head>
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;../src/main/java&quot;,&quot;THEME&quot;:&quot;valo&quot;}">
-  <meta name="vaadin-version" content="8.0.2">
+  <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
-  <vaadin-vertical-layout size-full margin="false">
-   <vaadin-absolute-layout id="" height="79px">
-    <vaadin-image source="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png" width="247px" height-full alt=""></vaadin-image>
-    <vaadin-label style-name="h2 bold colored large" width-full plain-text :top="13px" :left="247px">
-      Google 
-    </vaadin-label>
-   </vaadin-absolute-layout>
-   <vaadin-css-layout :middle>
-    <vaadin-menu-bar>
-     <menu>
-       File 
-      <menu>
-        Open 
-      </menu>
-      <menu>
-        Save 
-      </menu>
-      <menu>
-        Preferences 
-      </menu>
-      <menu separator></menu>
-      <menu>
-        Quit 
-      </menu>
-     </menu>
-     <menu>
-       Edit 
-     </menu>
-     <menu description="Some description">
-       About 
-     </menu>
-    </vaadin-menu-bar>
-   </vaadin-css-layout>
-   <vaadin-grid size-full data-item-type="java.lang.String" :expand>
-    <table>
-     <colgroup>
-      <col column-id="project" sortable="false">
-      <col column-id="status" sortable="false">
-     </colgroup>
-     <thead>
-      <tr default>
-       <th plain-text column-ids="project">Project</th>
-       <th plain-text column-ids="status">Status</th>
-      </tr>
-     </thead>
-     <tbody>
-      <tr item="project1">
-       <td>Customer Project 1</td>
-       <td>OK</td>
-      </tr>
-      <tr item="project2">
-       <td>Customer Project 2</td>
-       <td>OK</td>
-      </tr>
-      <tr item="project3">
-       <td>Customer Project 3</td>
-       <td>OK</td>
-      </tr>
-      <tr item="project4">
-       <td>Customer Project 4</td>
-       <td>OK</td>
-      </tr>
-      <tr item="project5">
-       <td>Customer Project 5</td>
-       <td>OK</td>
-      </tr>
-      <tr item="project6">
-       <td>Customer Project 6</td>
-       <td>OK</td>
-      </tr>
-      <tr item="project7">
-       <td>Customer Project 7</td>
-       <td>OK</td>
-      </tr>
-      <tr item="project8">
-       <td>Customer Project 8</td>
-       <td>OK</td>
-      </tr>
-      <tr item="project9">
-       <td>Customer Project 9</td>
-       <td>OK</td>
-      </tr>
-     </tbody>
-    </table>
-   </vaadin-grid>
-  </vaadin-vertical-layout>
+  <vaadin-vertical-split-panel split-position="10%">
+   <vaadin-horizontal-split-panel caption-as-html split-position="20%" _id="top">
+    <vaadin-horizontal-layout size-full _id="logopanel">
+     <vaadin-image :bottom :right></vaadin-image>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-split-panel split-position="70%">
+     <vaadin-horizontal-layout size-full>
+      <vaadin-label plain-text :bottom>
+        Label 
+      </vaadin-label>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout size-full>
+      <vaadin-menu-bar :bottom :center>
+       <menu>
+         File 
+        <menu>
+          Open 
+        </menu>
+        <menu>
+          Save 
+        </menu>
+        <menu>
+          Preferences 
+        </menu>
+        <menu separator></menu>
+        <menu>
+          Quit 
+        </menu>
+       </menu>
+       <menu>
+         Edit 
+       </menu>
+       <menu description="Some description">
+         About 
+       </menu>
+      </vaadin-menu-bar>
+     </vaadin-horizontal-layout>
+    </vaadin-horizontal-split-panel>
+   </vaadin-horizontal-split-panel>
+   <vaadin-horizontal-split-panel split-position="20%" _id="main">
+    <vaadin-css-layout size-full _id="leftPanel">
+     <vaadin-accordion size-full _id="cardPanel"></vaadin-accordion>
+    </vaadin-css-layout>
+    <vaadin-css-layout size-full _id="contentPanel">
+     <vaadin-tab-sheet size-full>
+      <tab caption="Tab" selected>
+       <vaadin-panel size-full>
+        <vaadin-grid size-full>
+         <table>
+          <colgroup>
+           <col column-id="project" sortable="false">
+           <col column-id="status" sortable="false">
+          </colgroup>
+          <thead>
+           <tr default>
+            <th plain-text column-ids="project">Project</th>
+            <th plain-text column-ids="status">Status</th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr item="project1">
+            <td>Customer Project 1</td>
+            <td>OK</td>
+           </tr>
+           <tr item="project2">
+            <td>Customer Project 2</td>
+            <td>OK</td>
+           </tr>
+           <tr item="project3">
+            <td>Customer Project 3</td>
+            <td>OK</td>
+           </tr>
+           <tr item="project4">
+            <td>Customer Project 4</td>
+            <td>OK</td>
+           </tr>
+           <tr item="project5">
+            <td>Customer Project 5</td>
+            <td>OK</td>
+           </tr>
+           <tr item="project6">
+            <td>Customer Project 6</td>
+            <td>OK</td>
+           </tr>
+           <tr item="project7">
+            <td>Customer Project 7</td>
+            <td>OK</td>
+           </tr>
+           <tr item="project8">
+            <td>Customer Project 8</td>
+            <td>OK</td>
+           </tr>
+           <tr item="project9">
+            <td>Customer Project 9</td>
+            <td>OK</td>
+           </tr>
+          </tbody>
+         </table>
+        </vaadin-grid>
+       </vaadin-panel>
+      </tab>
+      <tab caption="Tab">
+       <vaadin-panel size-full>
+        <vaadin-grid size-full>
+         <table>
+          <colgroup>
+           <col column-id="project" sortable="false">
+           <col column-id="status" sortable="false">
+          </colgroup>
+          <thead>
+           <tr default>
+            <th plain-text column-ids="project">Project</th>
+            <th plain-text column-ids="status">Status</th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr item="project1">
+            <td>Customer Project 1</td>
+            <td>OK</td>
+           </tr>
+           <tr item="project2">
+            <td>Customer Project 2</td>
+            <td>OK</td>
+           </tr>
+           <tr item="project3">
+            <td>Customer Project 3</td>
+            <td>OK</td>
+           </tr>
+           <tr item="project4">
+            <td>Customer Project 4</td>
+            <td>OK</td>
+           </tr>
+           <tr item="project5">
+            <td>Customer Project 5</td>
+            <td>OK</td>
+           </tr>
+           <tr item="project6">
+            <td>Customer Project 6</td>
+            <td>OK</td>
+           </tr>
+           <tr item="project7">
+            <td>Customer Project 7</td>
+            <td>OK</td>
+           </tr>
+           <tr item="project8">
+            <td>Customer Project 8</td>
+            <td>OK</td>
+           </tr>
+           <tr item="project9">
+            <td>Customer Project 9</td>
+            <td>OK</td>
+           </tr>
+          </tbody>
+         </table>
+        </vaadin-grid>
+       </vaadin-panel>
+      </tab>
+     </vaadin-tab-sheet>
+    </vaadin-css-layout>
+   </vaadin-horizontal-split-panel>
+  </vaadin-vertical-split-panel>
  </body>
 </html>

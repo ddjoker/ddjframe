@@ -4,7 +4,9 @@ import com.ddjokjer.ddjframe.model.acl.Permission;
 import com.ddjokjer.ddjframe.model.acl.PermissionExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface PermissionMapper {
     long countByExample(PermissionExample example);
 

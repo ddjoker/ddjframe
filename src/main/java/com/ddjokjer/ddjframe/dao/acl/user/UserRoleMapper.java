@@ -4,7 +4,9 @@ import com.ddjokjer.ddjframe.model.acl.user.UserRole;
 import com.ddjokjer.ddjframe.model.acl.user.UserRoleExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserRoleMapper {
     long countByExample(UserRoleExample example);
 

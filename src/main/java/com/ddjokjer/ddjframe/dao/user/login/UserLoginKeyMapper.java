@@ -4,7 +4,9 @@ import com.ddjokjer.ddjframe.model.user.login.UserLoginKey;
 import com.ddjokjer.ddjframe.model.user.login.UserLoginKeyExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserLoginKeyMapper {
     long countByExample(UserLoginKeyExample example);
 

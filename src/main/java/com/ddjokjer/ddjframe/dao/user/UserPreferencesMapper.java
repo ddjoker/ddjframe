@@ -4,7 +4,9 @@ import com.ddjokjer.ddjframe.model.user.UserPreferences;
 import com.ddjokjer.ddjframe.model.user.UserPreferencesExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserPreferencesMapper {
     long countByExample(UserPreferencesExample example);
 
